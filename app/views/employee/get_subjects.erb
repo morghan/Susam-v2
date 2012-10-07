@@ -1,0 +1,21 @@
+<h2>My subjects</h2>
+<%= link_to "Back", "/user/dashboard" %><br/><br/>
+<table>
+	<tr>
+		<th>Subject Name</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @my_subjects.each do |subject| %>
+	<tr>
+		<td><%=subject.name%></td>
+		<% if subject.plans.size > 0 %>
+			<% subject_plan = subject.plans.first %>
+			<td><%= link_to "Edit Ponderation", edit_plan_path(subject_plan.id) %></td>
+      <td><%= link_to "Show Ponderation", plan_path(subject_plan.id) %></td>
+		<% else %>
+			<td><%= link_to "Create Ponderation", new_subject_ponderation_path(:id=>subject.id) %></td>
+		<% end %>
+	</tr>
+	<% end %>
+</table>

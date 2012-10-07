@@ -1,0 +1,35 @@
+<h1>Grading</h1>
+
+<% form_for(@nota) do |f| %>
+  <%= f.error_messages %>
+
+  <p style="display:none">
+    <%= f.label :subject_id %><br />
+    <%= f.text_field :subject_id, :value => params[:id] %>
+  </p>
+  <p style="display:none">
+    <%= f.label :student_id %><br />
+    <%= f.text_field :student_id, :value => params[:id2] %>
+  </p>
+  <p>
+    <%= f.label "Exam 1" %><br />
+    <%= f.text_field :examen_1 %>
+  </p>
+  <p>
+    <%= f.label "Exam 2" %><br />
+    <%= f.text_field :examen_2 %>
+  </p>
+  <p>
+    <%= f.label "Exam 3" %><br />
+    <%= f.text_field :examen_3 %>
+  </p>
+  <p>
+    <%= f.label "Acumulative" %><br />
+    <%= f.text_field :acumulado %>
+  </p>
+  <p>
+    <%= f.submit 'Grade' %>
+  </p>
+<% end %>
+<% id = Plan.find_by_subject_id(params[:id]).id %>
+<%= link_to 'Back', "/plans/" + id.to_s %>

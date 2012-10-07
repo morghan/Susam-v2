@@ -1,0 +1,32 @@
+<h1>Editing ponderation</h1>
+
+<% form_for(@plan) do |f| %>
+  <%= f.error_messages %>
+
+  <p style="display:none">
+    <%= f.label :subject_id %><br />
+    <%= f.text_field :subject_id %>
+  </p>
+  <p>
+    <%= f.label "Exam 1" %><br />
+    <%= f.text_field :examen_1 %>
+  </p>
+  <p>
+    <%= f.label "Exam 2" %><br />
+    <%= f.text_field :examen_2 %>
+  </p>
+  <p>
+    <%= f.label "Exam 3" %><br />
+    <%= f.text_field :examen_3 %>
+  </p>
+  <p>
+    <%= f.label "Acumulative" %><br />
+    <%= f.text_field :acumulado %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @plan %> |
+<%= link_to 'Back', "/employee/get_subjects" %>

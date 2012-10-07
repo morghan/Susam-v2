@@ -1,0 +1,33 @@
+<p>
+  <b>Subject:</b>
+  <%=h @nota.subject_id %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%=h @nota.student_id %>
+</p>
+
+<p>
+  <b>Examen 1:</b>
+  <%=h @nota.examen_1 %>
+</p>
+
+<p>
+  <b>Examen 2:</b>
+  <%=h @nota.examen_2 %>
+</p>
+
+<p>
+  <b>Examen 3:</b>
+  <%=h @nota.examen_3 %>
+</p>
+
+<p>
+  <b>Acumulado:</b>
+  <%=h @nota.acumulado %>
+</p>
+
+
+<%= link_to 'Edit', edit_nota_path(@nota) %> |
+<%= link_to 'Back', notas_path %>
