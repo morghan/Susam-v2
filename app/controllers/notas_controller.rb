@@ -43,25 +43,40 @@ class NotasController < ApplicationController
     @nota = Nota.new(params[:nota])
 		@plan = Plan.find_by_subject_id(@nota.subject_id)
 		if !@nota.examen_1
-			@nota.examen_1 = 0
+			@nota.examen_1 = 0.0
 		end
 		if !@nota.examen_2
-			@nota.examen_2 = 0
+			@nota.examen_2 = 0.0
 		end
 		if !@nota.examen_3
-			@nota.examen_3 = 0
+			@nota.examen_3 = 0.0
 		end
-		if !@nota.acumulado
-			@nota.acumulado = 0
+		if !@nota.examen_4
+			@nota.examen_4 = 0.0
+		end
+
+		if !@nota.acumulado_1
+			@nota.acumulado_1 = 0.0
+		end
+		if !@nota.acumulado_2
+			@nota.acumulado_2 = 0.0
+		end
+		if !@nota.acumulado_3
+			@nota.acumulado_3 = 0.0
+		end
+		if !@nota.acumulado_4
+			@nota.acumulado_4 = 0.0
 		end
 		
-		if @nota.examen_1 > @plan.examen_1 || @nota.examen_2 > @plan.examen_2 || 
-			 @nota.examen_3 > @plan.examen_3 || @nota.acumulado > @plan.acumulado
-			flash[:notice] = "Scores can not be greater than ponderation values."
-			redirect_to ("/plans/"+@plan.id.to_s)
+		if @nota.examen_1 > @plan.examen_1 || @nota.examen_2 > @plan.examen_2 ||
+			 @nota.examen_3 > @plan.examen_3 || @nota.examen_4 > @plan.examen_4 ||
+       @nota.acumulado_1 > @plan.acumulado_1 || @nota.acumulado_2 > @plan.acumulado_2 ||
+			 @nota.acumulado_3 > @plan.acumulado_3 || @nota.acumulado_4 > @plan.acumulado_4
+			flash[:notice] = 'La calificacion no puede ser mayor que los valores de ponderacion.'
+			redirect_to new_student_score_path(:id => @nota.subject_id, :id2 => @nota.student_id)
 		else
 			if @nota.save
-		    flash[:notice] = 'Score was successfully created.'
+		    flash[:notice] = 'Alumno calificado con exito.'
 				redirect_to ("/plans/"+@plan.id.to_s) 
 		  else
 		    flash[:notice] = 'Something went wrong when creating score.'
@@ -77,14 +92,14 @@ class NotasController < ApplicationController
     @plan = Plan.find_by_subject_id(@nota.subject_id)
 		h = params[:nota]
 		if h[:examen_1].to_f > @plan.examen_1 || h[:examen_2].to_f > @plan.examen_2 || 
-			 h[:examen_3].to_f > @plan.examen_3 || h[:acumulado].to_f > @plan.acumulado
-			flash[:notice] = "Scores can not be greater than ponderation values: 
-			Exam 1: #{@plan.examen_1}, Exam 2: #{@plan.examen_2}, Exam 3: #{@plan.examen_3}, 
-			Acumulative: #{@plan.acumulado}"
+			 h[:examen_3].to_f > @plan.examen_3 || h[:examen_4].to_f > @plan.examen_4 ||
+			 h[:acumulado_1].to_f > @plan.acumulado_1 || h[:acumulado_2].to_f > @plan.acumulado_2 ||
+			 h[:acumulado_3].to_f > @plan.acumulado_3 || h[:acumulado_4].to_f > @plan.acumulado_4
+			flash[:notice] = "La calificacion no puede ser mayor que los valores de ponderacion."
 			render :action => "edit"
 		else
       if @nota.update_attributes(params[:nota])
-        flash[:notice] = 'Score was successfully updated.'
+        flash[:notice] = 'Alumno calificado con exito.'
 				redirect_to ("/plans/"+@plan.id.to_s) 
       else
 				flash[:notice] = 'Something went wrong when updating score.'

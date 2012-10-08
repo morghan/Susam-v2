@@ -28,9 +28,9 @@ class StudentController < ApplicationController
   ]
 
   def get_scores
-        @student = Student.find(params[:id])
-	@subjects = @student.batch.subjects
-	@student_scores = @student.notas
+  	@student = Student.find(params[:id])
+		@subjects = @student.batch.subjects
+		@student_scores = @student.notas
   end
   
   def academic_report_all

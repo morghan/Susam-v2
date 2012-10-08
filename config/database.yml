@@ -1,7 +1,7 @@
 development:
       host: localhost
       adapter: mysql
-      database: development_test
+      database: fedena_development
       port: 3306
       username: root
       password: admin

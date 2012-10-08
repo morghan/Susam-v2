@@ -2298,7 +2298,8 @@ authorization do
       :graph_for_academic_report,
       :show_previous_details,
       :fees,
-      :fee_details
+      :fee_details,
+			:get_scores
     ]
     has_permission_on [:news],
       :to => [
@@ -2392,7 +2393,8 @@ authorization do
       :all_employee_leave_applications,
       :individual_payslip_pdf,
       :show,
-      :profile_pdf
+      :profile_pdf,
+			:get_subjects
     ]
     has_permission_on [:timetable],:to => [:employee_timetable,:update_employee_tt]
     has_permission_on [:news],

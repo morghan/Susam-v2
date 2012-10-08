@@ -1,4 +1,5 @@
-<h1>Editing ponderation</h1>
+<% unless flash[:notice].nil? %> <p class="flash-msg"> <%= flash[:notice] %> </p> <% end %>
+<h1>Editando ponderacion</h1>
 
 <% form_for(@plan) do |f| %>
   <%= f.error_messages %>
@@ -8,23 +9,39 @@
     <%= f.text_field :subject_id %>
   </p>
   <p>
-    <%= f.label "Exam 1" %><br />
+    <%= f.label "Examen 1" %><br />
     <%= f.text_field :examen_1 %>
   </p>
   <p>
-    <%= f.label "Exam 2" %><br />
+    <%= f.label "Acumulado 1" %><br />
+    <%= f.text_field :acumulado_1 %>
+  </p>
+  <p>
+    <%= f.label "Examen 2" %><br />
     <%= f.text_field :examen_2 %>
   </p>
   <p>
-    <%= f.label "Exam 3" %><br />
+    <%= f.label "Acumulado 2" %><br />
+    <%= f.text_field :acumulado_2 %>
+  </p>
+  <p>
+    <%= f.label "Examen 3" %><br />
     <%= f.text_field :examen_3 %>
   </p>
   <p>
-    <%= f.label "Acumulative" %><br />
-    <%= f.text_field :acumulado %>
+    <%= f.label "Acumulado 3" %><br />
+    <%= f.text_field :acumulado_3 %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.label "Examen 4" %><br />
+    <%= f.text_field :examen_4 %>
+  </p>
+  <p>
+    <%= f.label "Acumulado 4" %><br />
+    <%= f.text_field :acumulado_4 %>
+  </p>
+  <p>
+    <%= f.submit 'Actualizar ponderacion' %>
   </p>
 <% end %>
 

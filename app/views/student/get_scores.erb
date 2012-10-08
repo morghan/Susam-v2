@@ -1,38 +1,7 @@
-<% unless flash[:notice].nil? %> <p class="flash-msg"> <%= flash[:notice] %> </p> <% end %>
+<h1>Calificaciones</h1>
+<%= link_to "Back", "/user/dashboard" %>
 <br/>
 <br/>
-<%= link_to 'Back', "/employee/get_subjects" %>
-<p>
-  <b>Subject:</b>
-  <%=h @plan.subject.name %>
-</p>
-<span><b>Ponderacion</b></span><br/>
-<table>
-	<tr>
-		<th>Examen 1</th>
-		<th>Acumulado</th>
-		<th>Examen 2</th>
-		<th>Acumulado</th>
-		<th>Examen 3</th>
-		<th>Acumulado</th>
-		<th>Examen 4</th>
-		<th>Acumulado</th>
-		<th></th>
-	</tr>
-	<tr>
-		<td><%=h @plan.examen_1 %></td>
-		<td><%=h @plan.acumulado_1 %></td>
-		<td><%=h @plan.examen_2 %></td>
-		<td><%=h @plan.acumulado_2 %></td>
-		<td><%=h @plan.examen_3 %></td>
-		<td><%=h @plan.acumulado_3 %></td>
-		<td><%=h @plan.examen_4 %></td>
-		<td><%=h @plan.acumulado_4 %></td>
-		<td><%= link_to 'Edit', edit_plan_path(@plan) %> </td>
-	</tr>
-</table>
-
-<h2>Notas de alumnos</h2>
 <table border="1">
 	<tr>
 		<th></th>
@@ -43,7 +12,7 @@
 		<th>Total General</th>
 	</tr>
 	<tr>
-		<th>Nombre</th>
+		<th>Materia</th>
 
 		<th>Examen</th>
 		<th>Acumulado</th>
@@ -63,12 +32,10 @@
 
 		<th>Promedio</th>
 	</tr>
-	<% subjectId = @plan.subject.id %>
-  <% @plan.subject.batch.students.each do |student| %>
+	<% @subjects.each do |subject| %>
 	<tr>
-		<td><%= student.first_name + " " + student.last_name%></td>
-		
-		<% student_note = student.notas.find_by_subject_id(subjectId) %>
+		<td><%= subject.name %></td>
+		<% student_note = @student_scores.find_by_subject_id(subject.id) %>
 		<% if student_note %>
 			<% total_1 = student_note.examen_1 + student_note.acumulado_1 %>
 			<% total_2 = student_note.examen_2 + student_note.acumulado_2 %>
@@ -88,7 +55,6 @@
 			<td><%= total_4 %></td>
 
 			<td><%= (total_1 + total_2 + total_3 + total_4)/4 %></td>
-			<td><%= link_to "Calificar", edit_nota_path(student_note.id) %></td>
 		<% else %>
 			<td>0.0</td>
 			<td>0.0</td>
@@ -104,8 +70,6 @@
 			<td>N/A</td>
 
 			<td>N/A</td>
-			<td><%= link_to "Calificar", new_student_score_path(:id => subjectId, 
-																												:id2 => student.id) %></td>
 		<% end %>
 	</tr>
 	<% end %>

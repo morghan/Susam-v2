@@ -45,7 +45,6 @@ class Student < ActiveRecord::Base
   has_many   :assessment_scores
   has_many   :exam_scores
   has_many   :previous_exam_scores
-  
 
   named_scope :active, :conditions => { :is_active => true }
   named_scope :with_full_name_only, :select=>"id, CONCAT_WS('',first_name,' ',last_name) AS name,first_name,last_name", :order=>:first_name
