@@ -51,7 +51,7 @@
     </div>
 
     <div class="button-box">
-      <%= link_to "<div class ='button-label'><p>#{t('gradebook')}</p></div>", {:controller => "student", :action => "get_scores",:id => @student.id},
+      <%= link_to "<div class ='button-label'><p>#{t('academic_reports')}</p></div>", {:controller => "student", :action => "get_scores",:id => @student.id},
         :class => "option_buttons", :id => "academic_button",:title => "#{t('academic_reports')}   "  %>
     </div>
   <% else %>
