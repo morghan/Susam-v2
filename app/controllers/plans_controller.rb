@@ -60,7 +60,7 @@ class PlansController < ApplicationController
 				end
 			else
 				flash[:notice] = 'Ponderacion de parcial excede o es menor que 100 puntos.'
-				render :action => "new"
+				redirect_to new_subject_ponderation_path(:id=>@plan.subject_id)
 			end
 		else
 			flash[:notice] = 'Ponderacion no puede ser vacia.'
