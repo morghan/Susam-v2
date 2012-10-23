@@ -51,7 +51,12 @@
         <div class="link-descr"><%= t('set_some_additional_details') %></div>
       </div>
     <% end %>
+
+    <% if permitted_to? :settings, :configuration %>
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('import')}", :controller=>"import", :action => "index" %></div>
+        <div class="link-descr"><%= t('import_some_users') %></div>
+      </div>
+    <% end %>  
   </div>
-
-
 </div>

@@ -127,13 +127,13 @@
             <%= select :student, :nationality_id, Country.all.map {|c| [c.name, c.id]}, :selected=> @student.nationality_id || @selected_value.to_i %>
           </div>
         </div>
-
+        <!--
         <hr class="label-underline"></hr>
 
         <div class="label-field-pair">
           <label for="student_birth_place"><%= t("mother_tongue") %></label>
           <div class="text-input-bg"><%= s.text_field :language %></div>
-        </div>
+        </div>-->
 
         <hr class="label-underline"></hr>
 
@@ -141,14 +141,14 @@
           <label for="student_category"><%= t('category') %></label>
           <div class="text-input-bg"><%= s.select :student_category_id, @categories.map {|c| [c.name, c.id]}, { :prompt => "#{t('select_a_category')}" } %></div>
         </div>
-
+ <!--
         <hr class="label-underline"></hr>
 
         <div class="label-field-pair">
           <label for="student_religion"><%= t('religion') %></label>
           <div class="text-input-bg"><%= s.text_field :religion %></div>
         </div>
-
+-->
       </div>
 
       <div id="admission1_form_vertical_block_right">
@@ -171,7 +171,7 @@
           <div class="text-input-bg"><%= s.text_field :city %></div>
         </div>
         <hr class="label-underline"></hr>
-
+ <!--
         <div class="label-field-pair">
           <label for="student_state"><%= t('state') %></label>
           <div class="text-input-bg"><%= s.text_field :state %></div>
@@ -183,7 +183,7 @@
           <div class="text-input-bg"><%= s.text_field :pin_code %></div>
         </div>
         <hr class="label-underline"></hr>
-
+-->
         <div class="label-field-pair">
           <label for="student_country"><%= t('country') %></label>
           <div class="text-input-bg"> <%= select :student, :country_id, Country.all.map {|c| [c.name, c.id]}, :selected=> @student.country_id || @selected_value.to_i %> </div>

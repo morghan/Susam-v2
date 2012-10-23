@@ -1318,6 +1318,7 @@ authorization do
   # admin privileges
   role :admin do
     includes :archived_exam_reports
+    has_permission_on [:import],  :to => [:index, :import_csv, :list_batches]
     has_permission_on [:user],  :to => [:edit_privilege]
     has_permission_on [:weekday], :to => [:index, :week, :create]
     has_permission_on [:event],

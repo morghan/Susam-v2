@@ -2481,3 +2481,6 @@ en: # locale
   descriptive_indicator_created:  "Descriptive Indicator saved successfully."
   descriptive_indicator_updated:  "Descriptive Indicator updated."
   select_batches: "Select batches"
+  import_file: "Import File"
+  import: "Import"
+  import_some_users: "Import user to batch"
