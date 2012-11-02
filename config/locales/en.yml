@@ -2484,3 +2484,4 @@ en: # locale
   import_file: "Import File"
   import: "Import"
   import_some_users: "Import user to batch"
+  calendar: "Calendar"

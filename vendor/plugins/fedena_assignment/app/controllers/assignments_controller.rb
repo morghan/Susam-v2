@@ -7,8 +7,13 @@ class AssignmentsController < ApplicationController
     if    @current_user.employee?
       @subjects = current_user.employee_record.subjects
       @subjects.reject! {|s| !s.batch.is_active}
-    elsif    @current_user.student?
-      @assignments = Assignment.for_student current_user.student_record.id 
+    elsif @current_user.student?
+      @assignments = Assignment.for_student current_user.student_record.id
+    elsif @current_user.parent?      
+      st = Student.find_by_admission_no current_user.parent_record.admission_no
+      @assignments = Assignment.for_student st.id
+      @a
+      #@assignments = Assignment.for_student current_user.student_record.id
     end
   end
 

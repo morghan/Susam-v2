@@ -21,6 +21,26 @@ authorization do
        ]
   end
 
+  role :parent do
+    has_permission_on [:assignment_answers],
+      :to=>[
+      :create,
+      :download_attachment,
+      :edit,
+      :new,
+      :show,
+      :update]
+    has_permission_on [:assignments],
+      :to=>[
+      :assignment_student_list,
+      :download_attachment,
+      :index,
+      :new,
+      :show,
+      :subject_assignments,
+      :subjects_students_list,
+       ]
+  end
 
   role :employee do
     has_permission_on [:assignments],

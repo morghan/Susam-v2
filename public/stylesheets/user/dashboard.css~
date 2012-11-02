@@ -32,6 +32,9 @@
 #calendar_button {background:#fff url(../../images/dashboard_buttons/button_calendar.png) 0 0 no-repeat;}
 #calendar_button:hover {background:#fff url(../../images/dashboard_buttons/button_calendar.png) -175px 0 no-repeat;}
 
+#admission_button {background:#fff url(../../images/dashboard_buttons/button_calendar.png) 0 0 no-repeat;}
+#admission_button:hover {background:#fff url(../../images/dashboard_buttons/button_calendar.png) -175px 0 no-repeat;}
+
 #admission_button {background:#fff url(../../images/dashboard_buttons/button_admission.png) 0 0 no-repeat;}
 #admission_button:hover {background:#fff url(../../images/dashboard_buttons/button_admission.png) -175px 0 no-repeat;}
 

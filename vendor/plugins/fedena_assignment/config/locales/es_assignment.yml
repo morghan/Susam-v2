@@ -64,3 +64,7 @@ es:
     submitted_on: "Enviada"
     submitted_by: "Enviado por"
     answer: "Respuesta"
+
+  homeworks: "Tareas"
+  homeworks_title: "Ver y crear tareas"
+  homeworks_title_student: "Ver Tareas"

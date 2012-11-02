@@ -18,6 +18,18 @@
 
   <div id="box">
 
+     <% if permitted_to? :settings, :configuration %>
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('general_settings')}", :action => "settings" %></div>
+        <div class="link-descr"><%= t('set_some_general_configuration') %></div>
+      </div>
+
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('manage_student_category')}", :controller => "student", :action => "categories" %></div>
+        <div class="link-descr"><%= t('add_student_category') %></div>
+      </div>
+    <% end %>
+
     <% if permitted_to? :create, :courses %>
       <div class="link-box">
         <div class="link-heading"><%= link_to "#{t('manage_course_batch')}", courses_path %></div>
@@ -25,34 +37,19 @@
       </div>
     <% end %>
 
-    <% if permitted_to? :settings, :configuration %>
-      <div class="link-box">
-        <div class="link-heading"><%= link_to "#{t('manage_student_category')}", :controller => "student", :action => "categories" %></div>
-        <div class="link-descr"><%= t('add_student_category') %></div>
-      </div>
-    <% end %>
     <% if permitted_to? :index, :subjects %>
       <div class="link-box">
         <div class="link-heading"><%= link_to "#{t('manage_subject')}", subjects_path %></div>
         <div class="link-descr"><%= t('manage_subjects_corresponding') %></div>
       </div>
-    <% end %>
-
-    <% if permitted_to? :settings, :configuration %>
-      <div class="link-box">
-        <div class="link-heading"><%= link_to "#{t('general_settings')}", :action => "settings" %></div>
-        <div class="link-descr"><%= t('set_some_general_configuration') %></div>
-      </div>
-    <% end %>
+    <% end %> 
 
     <% if permitted_to? :settings, :configuration %>
       <div class="link-box">
         <div class="link-heading"><%= link_to "#{t('add_admission_additional_detail')}", :controller=>"student", :action => "add_additional_details" %></div>
         <div class="link-descr"><%= t('set_some_additional_details') %></div>
       </div>
-    <% end %>
-
-    <% if permitted_to? :settings, :configuration %>
+    
       <div class="link-box">
         <div class="link-heading"><%= link_to "#{t('import')}", :controller=>"import", :action => "index" %></div>
         <div class="link-descr"><%= t('import_some_users') %></div>
